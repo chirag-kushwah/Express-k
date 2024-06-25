@@ -1,0 +1,556 @@
+<%- include("./header.ejs") %>
+
+<!--slider start-->
+<div class="carousel slide" data-bs-ride="carousel" id="an">
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-bs-target="#an"
+      data-bs-slide-to="0"
+      class="active"
+    ></button>
+    <button type="button" data-bs-target="#an" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#an" data-bs-slide-to="2"></button>
+  </div>
+  <!--div carousel-indicators end-->
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="2000">
+      <img
+        src="https://www.universityofcalifornia.edu/sites/default/files/2024-01/impact-video-banner-24-first-frame.jpg"
+        alt=""
+        class="w-100"
+        style="height: 500px"
+      />
+      <div class="carousel-caption">
+        <h2>University of California</h2>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img
+        src="image/pang-yuhao-_kd5cxwZOK4-unsplash.jpg"
+        alt=""
+        class="w-100"
+        style="height: 500px"
+      />
+      <div class="carousel-caption">
+        <h2>University of California</h2>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img
+        src="image/Seniors 'gift tag' campus buildings in the name of philanthropy.jpeg"
+        alt=""
+        class="w-100"
+        style="height: 500px"
+      />
+      <div class="carousel-caption">
+        <h2>University of California</h2>
+      </div>
+    </div>
+  </div>
+  <!--carousel-inner-end-->
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#an"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#an"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!--slider end-->
+<div class="container" style="margin-top: 40px">
+  <h2 class="text-center" style="color: rgb(57, 56, 56)">
+    Welcome <b style="color: #0975c7"><%= n %></b>
+  </h2>
+  <div class="row" style="margin-top: 50px">
+    <div class="col-md-4">
+      <div class="card shadow ms-2 mb-4">
+        <p class="text-center text-black a">
+          Getting Started Starting a new job involves a lot of choices. This
+          quick-reference guide is designed to help you understand the many
+          benefits available, and how to get started choosing the ones that are
+          right for you.
+        </p>
+      </div>
+    </div>
+    <!--col-md-4 firse end-->
+    <div class="col-md-4">
+      <div class="card shadow ms-2 mb-4">
+        <p class="text-center text-black a">
+          Medical, Dental, Vision and Supplemental Health Your health is
+          important to us, and we offer a wide range of health benefits to help
+          take care of you and your family.UC offers you a wide choice of
+          medical plans
+        </p>
+      </div>
+    </div>
+    <!--col-md-4 second end-->
+    <div class="col-md-4">
+      <div class="card shadow ms-2 mb-4">
+        <p class="text-center text-black a">
+          Disability, Life and Accidental Death and Dismemberment Insurance To
+          help you prepare for the unexpected, UC offers insurance plans to
+          provide a financial safety net for you and your family.Disability
+          insurance replaces wages
+        </p>
+      </div>
+    </div>
+    <!--col-md-4 third end-->
+  </div>
+  <!--row end-->
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <img
+          src="image/How digital health care startups leap funding hurdles (VB Live).jpeg"
+          alt=""
+        />
+        <h2 style="text-align: center">B.Tech</h2>
+        <div class="card-body">
+          <p class="b">
+            Bachelor of Technology (B.Tech) is an undergraduate engineering
+            degree program typically spanning four years. It offers
+            specializations like Computer Science, Electrical, Mechanical,
+            Civil, Electronics, Chemical, Information Technology, and
+            Environmental Engineering.
+          </p>
+          <% if(btech){ %>
+          <a href="/courseDisplay"
+          class="btn btn-info">Course Display</a>
+          <% } else { %>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#btech"
+            >
+              Register
+            </button>
+          <% } %>
+          
+          
+          <div class="modal fade" id="btech">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Course Register</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/course_insert" method="post">
+                    <div class="form-group">
+                      <label for="name">Enter name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter full name"
+                        name="name"
+                        id="name"
+                        required
+                        value="<%= n %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Enter email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter email"
+                        name="email"
+                        id="email"
+                        required
+                        value="<%= e %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="number">Phone number</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Enter number"
+                        name="phone"
+                        id="number"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="DOB">DOB</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        placeholder="dd-mm-yy"
+                        name="dob"
+                        id="DOB"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Address"
+                        name="address"
+                        id="address"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Gender</label>
+                      <input type="radio" name="gender" value="male" />Male
+                      <input type="radio" name="gender" value="female" />Female
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Education</label>
+                      <select
+                        name="education"
+                        id=""
+                        class="form-control form-select"
+                      >
+                        <option value="">Select education</option>
+                        <option value="10">10th</option>
+                        <option value="12">12th</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Course</label>
+                      <input
+                        type="text"
+                        value="Btech"
+                        class="form-control"
+                        name="course"
+                        readonly
+                      />
+                    </div>
+
+                    <center>
+                      <button class="btn btn-primary mt-3" type="submit">
+                        Submit
+                      </button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <img
+          src="image/Computer Courses After 12th Commerce.jpeg"
+          alt=""
+          style="height: 250px"
+        />
+        <h2 style="text-align: center">BCA</h2>
+        <div class="card-body">
+          <p class="b">
+            Bachelor of Computer Applications (BCA) is an undergraduate degree
+            program typically spanning three years. It focuses on computer
+            science, software development, and information technology. BCA
+            covers areas such as programming languages, and web development.
+          </p>
+          <% if(bca){ %>
+          <a href="/courseDisplay"
+          class="btn btn-info">Course Display</a>
+          <% } else { %>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#bca"
+            >
+              Register
+            </button>
+          <% } %>
+          <div class="modal fade" id="bca">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Course Register</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/course_insert" method="post">
+                    <div class="form-group">
+                      <label for="name">Enter name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter full name"
+                        name="name"
+                        id="name"
+                        required
+                        value="<%= n %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Enter email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter email"
+                        name="email"
+                        id="email"
+                        required
+                        value="<%= e %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="number">Phone number</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Enter number"
+                        name="phone"
+                        id="number"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="DOB">DOB</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        placeholder="dd-mm-yy"
+                        name="dob"
+                        id="DOB"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Address"
+                        name="address"
+                        id="address"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="">Gender</label>
+                      <br>
+                      <input type="radio" name="gender" value="male" />Male
+                      <br>
+                      <input type="radio" name="gender" value="female" />Female
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Education</label>
+                      <select
+                        name="education"
+                        id=""
+                        class="form-control form-select"
+                      >
+                        <option value="">Select education</option>
+                        <option value="10">10th</option>
+                        <option value="12">12th</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Course</label>
+                      <input
+                        type="text"
+                        value="BCA"
+                        class="form-control"
+                        name="course"
+                        readonly
+                      />
+                    </div>
+
+                    <center>
+                      <button class="btn btn-primary mt-3" type="submit">
+                        Submit
+                      </button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mt-4">
+      <div class="card">
+        <img
+          src="image/Free Photo _ Top view of unrecognizable hacker performing cyberattack at night.jpeg"
+          alt=""
+          style="height: 250px"
+        />
+        <h2 style="text-align: center">MCA</h2>
+        <div class="card-body">
+          <p class="b">
+            Master of Computer Applications (MCA) is a postgraduate professional
+            degree in computer science and application. It is typically a
+            three-year program designed to provide advanced knowledge and skills
+            in computer science, software development, and IT management.
+          </p>
+          <% if(mca){ %>
+          <a href="/courseDisplay"
+          class="btn btn-info">Course Display</a>
+          <% } else { %>
+            <button
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#mca"
+            >
+              Register
+            </button>
+          <% } %>
+          <div class="modal fade" id="mca">
+            <div class="modal-dialog modal-md">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Course Register</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/course_insert" method="post">
+                    <div class="form-group">
+                      <label for="name">Enter name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter full name"
+                        name="name"
+                        id="name"
+                        required
+                        value="<%= n %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="email">Enter email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Enter email"
+                        name="email"
+                        id="email"
+                        required
+                        value="<%= e %>"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="number">Phone number</label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Enter number"
+                        name="phone"
+                        id="number"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="DOB">DOB</label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        placeholder="dd-mm-yy"
+                        name="dob"
+                        id="DOB"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Address"
+                        name="address"
+                        id="address"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <label for="">Gender</label>
+                      <br>
+                      <input type="radio" name="gender" value="male" />Male
+                      <input type="radio" name="gender" value="female" />Female
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Education</label>
+                      <select
+                        name="education"
+                        id=""
+                        class="form-control form-select"
+                      >
+                        <option value="">Select education</option>
+                        <option value="10">10th</option>
+                        <option value="12">12th</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label for="">Course</label>
+                      <input
+                        type="text"
+                        value="MCA"
+                        class="form-control"
+                        name="course"
+                        readonly
+                      />
+                    </div>
+
+                    <center>
+                      <button class="btn btn-primary mt-3" type="submit">
+                        Submit
+                      </button>
+                    </center>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--row end-->
+</div>
+<!--container end -->
+<br /><br />
+<!-- Btech modal
+<div class="modal fade" id="btech" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!--End btech modal-->
+<%- include("./footer.ejs") %>
